@@ -22,6 +22,12 @@ class Game
      */
     private $step;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Word::class, cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $word;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +41,18 @@ class Game
     public function setStep(int $step): self
     {
         $this->step = $step;
+
+        return $this;
+    }
+
+    public function getWord(): ?Word
+    {
+        return $this->word;
+    }
+
+    public function setWord(Word $word): self
+    {
+        $this->word = $word;
 
         return $this;
     }
