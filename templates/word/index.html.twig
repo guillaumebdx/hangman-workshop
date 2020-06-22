@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello WordController!{% endblock %}
+
+{% block body %}
+    <form action="{{ path('word_check') }}">
+        <button>Check</button>
+    </form>
+    <form action="{{ path('word_replay') }}">
+        <button>Replay</button>
+    </form>
+    {% if game.step == 1 %}
+        <img id="stick1" src="https://i.imgur.com/ZUh0WSK.png">
+    {% endif %}
+    {% if game.step == 2 %}
+        <img id="stick2" src="https://i.imgur.com/zn1TZsc.png">
+    {% endif %}
+    {% if game.step == 3 %}
+    <img id="stick3" src="https://i.imgur.com/AxWUw4H.png">
+    {% endif %}
+    {% if game.step == 4 %}
+    <img id="stick4" src="https://i.imgur.com/2q4UAXI.png">
+    {% endif %}
+    {% if game.step == 5 %}
+    <img id="stick5" src="https://i.imgur.com/cCTeHJJ.png">
+    {% endif %}
+    {% if game.step == 6 %}
+    <img id="stick6" src="https://i.imgur.com/Pg92iNM.png">
+    {% endif %}
+    {% if game.step == 7 %}
+    <img id="stick7" src="https://i.imgur.com/U94sZ9m.png">
+    {% endif %}
+    {% if game.step == 8 %}
+    <img id="stick8" src="https://i.imgur.com/GFPA30S.png">
+    {% endif %}
+    {% if game.step == 9 %}
+    <img id="stick9" src="https://i.imgur.com/8Ol4GWF.png">
+    {% endif %}
+    {% if game.step == 10 %}
+    <img id="stick10" src="https://i.imgur.com/Icr7LoK.png">
+    {% endif %}
+
+{% endblock %}
+
