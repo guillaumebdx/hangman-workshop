@@ -12,6 +12,18 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class WordController extends AbstractController
 {
+
+    /**
+     * @Route("/word", name="word")
+     */
+    public function index(GameRepository $gameRepository)
+    {
+        $game = $gameRepository->findOneBy([]);
+        return $this->render('word/index.html.twig', [
+            'game' => $game,
+        ]);
+    }
+
     /**
      * @Route("/check", name="check")
      */
@@ -35,21 +47,8 @@ class WordController extends AbstractController
      */
     public function replay(GameRepository $gameRepository, EntityManagerInterface $entityManager)
     {
-        $game = $gameRepository->findOneBy([]);
-        $game->setStep(0);
-        $entityManager->persist($game);
-        $entityManager->flush();
+        //TODO Add code to replay game from step 0
         return $this->redirectToRoute('word_word');
     }
 
-    /**
-     * @Route("/word", name="word")
-     */
-    public function index(GameRepository $gameRepository)
-    {
-        $game = $gameRepository->findOneBy([]);
-        return $this->render('word/index.html.twig', [
-            'game' => $game,
-        ]);
-    }
 }
